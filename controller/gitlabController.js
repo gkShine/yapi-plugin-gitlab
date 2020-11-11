@@ -297,7 +297,7 @@ class gitlabController extends baseController{
      */
     async searchGitlabMember(ops, id, tag) {
         return new Promise((resolve, reject)=>{
-            request(ops.host + '/api/v4/' + tag + '/' + id + '/members', {
+            request(ops.host + '/api/v4/' + encodeURIComponent(tag) + '/' + id + '/members', {
                 method: 'get',
                 headers: {
                     'Private-Token': ops.accessToken
@@ -341,7 +341,7 @@ class gitlabController extends baseController{
      */
     async searchGitLabGroup(ops, name, tag, groupName) {
         return new Promise((resolve, reject)=>{
-            request(ops.host + '/api/v4/' + tag + '?search=' + name, {
+            request(ops.host + '/api/v4/' + tag + '?search=' + encodeURIComponent(name), {
                 method: 'get',
                 headers: {
                     'Private-Token': ops.accessToken
