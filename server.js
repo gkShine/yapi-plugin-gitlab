@@ -26,7 +26,6 @@ module.exports = function (options) {
     });
 
     this.bindHook('add_router', function(addRouter) {
-
         let path = redirectUri.split('/api/plugin/');
         if (!path[1]) {
             throw new Error("oauth redirectUri must like 'http://domain.com:port/api/plugin/xxxxx'");
